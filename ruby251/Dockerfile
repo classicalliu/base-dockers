@@ -1,4 +1,4 @@
-FROM classicalliu/ruby-base:0.1
+FROM classicalliu/ruby-base:0.2
 
 # install ruby
 ENV RUBY_VERSION "2.5.1"
