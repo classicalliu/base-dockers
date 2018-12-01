@@ -11,6 +11,11 @@ RUN apt-get update -qq && \
  apt-get clean && \
  rm -rf /var/lib/apt/lists/*
 
+RUN mkdir /secp256k1
+WORKDIR /secp256k1
+RUN git clone https://github.com/bitcoin-core/secp256k1.git . && ./autogen.sh && ./configure --enable-module-recovery && make && make install
+WORKDIR /
+
 # set language
 RUN locale-gen en_US.UTF-8
 ENV LANG en_US.UTF-8
